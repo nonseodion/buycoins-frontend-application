@@ -89,6 +89,7 @@ const populateTemplate = (repository) => {
 
 const getReposData = (repositories) => {
   const repositoriesNode = document.querySelector(".repositories");
+  console.log(repositories);
   document.querySelectorAll(".amount__repositories")
     .forEach(ele => ele.textContent = repositories.length);
     repositories.forEach( repository => {
@@ -98,6 +99,7 @@ const getReposData = (repositories) => {
 }
 
 const getUserData = (object) => {
+  debugger;
   document.querySelector(".name").textContent = object.name;
   document.querySelector(".description").textContent = object.bio;
   document.querySelectorAll(".profile-pic").forEach( img => img.src = object.avatarUrl);
@@ -139,7 +141,7 @@ const query  = `{
 }`
 
 fetch("https://api.github.com/graphql", {
-  headers:{Authorization: "bearer dac2681f80240eee34bcf9aff6d92c38d3f258a1"}, 
+  headers:{Authorization: "bearer  1304531025f4aac427c9b9f8a48bcb58887aa165"}, 
   method: 'POST', 
   body: JSON.stringify({query: query})
 })
