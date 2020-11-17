@@ -142,7 +142,7 @@ const query  = `{
 }`
 
 fetch("https://api.github.com/graphql", {
-  headers:{Authorization: `bearer  ${token}`},
+  headers:{Authorization: `bearer  ${GITHUB_PERSONAL_ACCESS_TOKEN}`},
   method: 'POST', 
   body: JSON.stringify({query: query})
 })
