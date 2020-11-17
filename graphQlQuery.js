@@ -1,6 +1,7 @@
 //Graphql query and handlers
 
 //date handlers
+const token = "";
 
 const getDuration = (timeStamp, form) => {
   const second = 1000;
@@ -90,7 +91,6 @@ const populateTemplate = (repository) => {
 
 const getReposData = (repositories) => {
   const repositoriesNode = document.querySelector(".repositories");
-  console.log(repositories);
   document.querySelectorAll(".amount__repositories")
     .forEach(ele => ele.textContent = repositories.length);
     repositories.forEach( repository => {
@@ -141,7 +141,7 @@ const query  = `{
 }`
 
 fetch("https://api.github.com/graphql", {
-  headers:{Authorization: `bearer  ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`},
+  headers:{Authorization: `bearer  ${token}`},
   method: 'POST', 
   body: JSON.stringify({query: query})
 })
