@@ -1,7 +1,6 @@
 //Graphql query and handlers
 
 //date handlers
-const token = "50c4b5a12e32ca5324408fa973d0d06dbd997bb6";
 
 const getDuration = (timeStamp, form) => {
   const second = 1000;
@@ -142,7 +141,7 @@ const query  = `{
 }`
 
 fetch("https://api.github.com/graphql", {
-  headers:{Authorization: `bearer  ${GITHUB_PERSONAL_ACCESS_TOKEN}`},
+  headers:{Authorization: `bearer  ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`},
   method: 'POST', 
   body: JSON.stringify({query: query})
 })
