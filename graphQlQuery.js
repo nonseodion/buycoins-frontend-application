@@ -1,6 +1,8 @@
 //Graphql query and handlers
 
 //date handlers
+const token = "50c4b5a12e32ca5324408fa973d0d06dbd997bb6";
+
 const getDuration = (timeStamp, form) => {
   const second = 1000;
   const minute = second * 60;
@@ -99,7 +101,6 @@ const getReposData = (repositories) => {
 }
 
 const getUserData = (object) => {
-  debugger;
   document.querySelector(".name").textContent = object.name;
   document.querySelector(".description").textContent = object.bio;
   document.querySelectorAll(".profile-pic").forEach( img => img.src = object.avatarUrl);
@@ -141,7 +142,7 @@ const query  = `{
 }`
 
 fetch("https://api.github.com/graphql", {
-  headers:{Authorization: "bearer  1304531025f4aac427c9b9f8a48bcb58887aa165"}, 
+  headers:{Authorization: `bearer  ${token}`},
   method: 'POST', 
   body: JSON.stringify({query: query})
 })
