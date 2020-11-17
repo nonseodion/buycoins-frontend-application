@@ -319,7 +319,7 @@ header{
 }
 
 .repositories{
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
 }
 .repositories input{
   width: 100%;
@@ -384,8 +384,11 @@ header{
 }
 .repository__details span,
 .repository__details a{
-  display: inline-flex;
   align-items: center;
+  vertical-align: middle;
+}
+.repository__details span svg,
+.repository__details a svg{
   vertical-align: middle;
 }
 .repository__details > span{
