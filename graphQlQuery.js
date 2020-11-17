@@ -145,7 +145,14 @@ fetch("https://api.github.com/graphql", {
   method: 'POST', 
   body: JSON.stringify({query: query})
 })
-  .then(res => res.json())
+  .then(res => {
+    if(res.ok){
+      return res.json();
+    }
+    else{
+      return Promise.reject(res);
+    }
+  })
   .then(data => {
     getUserData(data.data.user);
   })
