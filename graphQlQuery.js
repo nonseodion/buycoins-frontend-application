@@ -103,6 +103,7 @@ const getUserData = (object) => {
   document.querySelector(".name").textContent = object.name;
   document.querySelector(".description").textContent = object.bio;
   document.querySelectorAll(".profile-pic").forEach( img => img.src = object.avatarUrl);
+  document.querySelectorAll(".username").forEach( ele => ele.textContent = object.login);
   getReposData(object.repositories.edges);
 }
 
@@ -111,6 +112,7 @@ const getUserData = (object) => {
 const query  = `{
   user(login: "nonseodion") {
     bio
+    login
     name
     avatarUrl
     repositories(first: 20, orderBy: {direction: DESC, field: UPDATED_AT}) {
